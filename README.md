@@ -29,7 +29,24 @@ This project demonstrates the design and implementation of a RISCV processor wit
 5. Analyze the waveform output using a waveform viewer.
 
 ## Modules
+### Top Module:
+![RTL Top module](Images/RTL_top.PNG)  
+The picture represents the top module of RISC-V processor that contains the memory block and the processor itself as shown in Figure 1.
 
+### RISC-V Module:
+![RISC-V module](Images/RTL_ricsv.PNG)  
+The RISC-V processor contain Datapath, Controller, and Hazard unit. The Datapath is the signals that carry the data from the memory to registers, then to ALU unit, etc. The Controller on the other hand, is what interprets instructions and move on its FSM (finite state machine) to communite its control signals to datapath signals to evlaute/preform the instructions. As such, the control unit controls the data path. Meanwhile, the Hazard unit will to detect and resolve data/control hazards.
+
+### Datapath Module:
+![RTL Datapath module](Images/RTL_datapath.PNG)  
+The Datapath module contains the register file, alu, pc registers, multiplexer, etc as explained above. 
+
+### Controller Module
+The Control unit would include the MainFSM, ALU_dec, and Instr_dec as shown below:
+![RTL Control module](Images/RTL_controller.PNG)  
+
+### Hazard Module
+![RTL Hazard module](Images/RTL_hazard.PNG)
 
 ## Simulation and Testing
 The individual processors has been tested and each instructions has been tested as well. What I'm going to show you is a simulation results based on the testbench. As mentioned before, the riscvtest.s is an assembly code written in RISC-V assembly language and the riscvtest.txt is the machine code from the riscvtest.s .
